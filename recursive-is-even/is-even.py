@@ -12,12 +12,13 @@ def recursive_is_even(n):
     return recursive_is_even(n + 2)
 
 # 🧐
-def string_is_even(n):
+def last_digit_is_even(n):
   even_digits = "02468"
+  s = str(n)
 
-  if n == "":
+  if s == "":
     return True
-  elif n[-1] in even_digits:
+  elif s[-1] in even_digits:
     return True
   else:
     return False
@@ -41,15 +42,15 @@ print(f"recursive_is_even(10000000): {recursive_is_even(10000000)}")
 
 print("--------------------------------")
 
-print(f"string_is_even('2'): {string_is_even('2')}")
-print(f"string_is_even('3'): {string_is_even('3')}")
-print(f"string_is_even('1000'): {string_is_even('1000')}")
-print(f"string_is_even('1001'): {string_is_even('1001')}")
-print(f"string_is_even('-2'): {string_is_even('-2')}")
-print(f"string_is_even('-3'): {string_is_even('-3')}")
-print(f"string_is_even('-1000'): {string_is_even('-1000')}")
-print(f"string_is_even('-1001'): {string_is_even('-1001')}")
-print(f"string_is_even('10000000'): {string_is_even('10000000')}")
+print(f"last_digit_is_even(2): {last_digit_is_even(2)}")
+print(f"last_digit_is_even(3): {last_digit_is_even(3)}")
+print(f"last_digit_is_even(1000): {last_digit_is_even(1000)}")
+print(f"last_digit_is_even(1001): {last_digit_is_even(1001)}")
+print(f"last_digit_is_even(-2): {last_digit_is_even(-2)}")
+print(f"last_digit_is_even(-3): {last_digit_is_even(-3)}")
+print(f"last_digit_is_even(-1000): {last_digit_is_even(-1000)}")
+print(f"last_digit_is_even(-1001): {last_digit_is_even(-1001)}")
+print(f"last_digit_is_even(10000000): {last_digit_is_even(10000000)}")
 
 print("--------------------------------")
 
