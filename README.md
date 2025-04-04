@@ -17,3 +17,6 @@ I've made this public so anyone can submit any code they want to this repo. Just
 3. This helps prevent breaking your streak during brief periods where you can't submit solutions
 
 Note: This is intended as a temporary solution only while dealing with guest mode restrictions, not as a permanent alternative to actually completing exercises.
+
+Quick commit at EOD to keep the streak.
+
