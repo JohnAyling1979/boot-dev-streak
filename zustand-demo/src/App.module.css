@@ -1,0 +1,7 @@
+.lowerSection {
+    display: flex;
+}
+
+.lowerSection > div {
+    flex: 1;
+}
