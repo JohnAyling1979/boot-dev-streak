@@ -8,7 +8,7 @@ type Store = {
     exp: number;
     gold: number;
     enemy: Enemy | null;
-    setEnemy: (enemy: Enemy) => void;
+    setEnemy: (enemy: Enemy | null) => void;
     takeDamage: (damage: number) => void;
     gainExp: (exp: number) => void;
     gainLevel: () => void;
@@ -16,7 +16,7 @@ type Store = {
     spendGold: (amount: number) => void;
 };
 
-type Enemy = {
+export type Enemy = {
     name: string;
     hp: number;
     attack: number;
@@ -32,9 +32,23 @@ const useAppStore = create<Store>(set => ({
     exp: 0,
     gold: 0,
     enemy: null,
-    setEnemy: (enemy: Enemy) => set({ enemy }),
+    setEnemy: (enemy: Enemy | null) => set({ enemy }),
     takeDamage: damage => set(state => ({hp: state.hp - damage})),
-    gainExp: (exp: number) => set(state => ({exp: state.exp + exp})),
+    gainExp: (exp: number) => set(state => {
+        const newExp = state.exp + exp;
+        const levelUpExp = 100 * state.level;
+        if (newExp >= levelUpExp) {
+            const levelsGained = Math.floor(newExp / levelUpExp);
+            const newLevel = state.level + levelsGained;
+            const remainingExp = newExp % levelUpExp;
+
+            return {
+                level: newLevel,
+                exp: remainingExp,
+            };
+        }
+        return {exp: state.exp + exp};
+    }),
     gainLevel: () => set(state => ({level: state.level + 1})),
     gainGold: (amount: number) => set(state => ({gold: state.gold + amount})),
     spendGold: (amount: number) => set(state => ({gold: state.gold + amount})),
