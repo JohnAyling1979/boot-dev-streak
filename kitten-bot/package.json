@@ -1,0 +1,19 @@
+{
+  "name": "kitten-bot",
+  "version": "2.0.0",
+  "description": "A sample Slack Botkit bot.",
+  "main": "kittenbot.js",
+  "scripts": {
+    "start": "node kittenbot.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "22"
+  },
+  "dependencies": {
+    "botbuilder-adapter-slack": "^1.0.14",
+    "dotenv": "^16.5.0",
+    "request": "^2.88.2"
+  },
+  "license": "Apache-2.0"
+}
